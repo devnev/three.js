@@ -18733,6 +18733,32 @@
 
 			return this;
 		},
+		applyNormalMatrix: function applyNormalMatrix(m) {
+			for (var i = 0, l = this.count; i < l; i++) {
+				_vector$6.x = this.getX(i);
+				_vector$6.y = this.getY(i);
+				_vector$6.z = this.getZ(i);
+
+				_vector$6.applyNormalMatrix(m);
+
+				this.setXYZ(i, _vector$6.x, _vector$6.y, _vector$6.z);
+			}
+
+			return this;
+		},
+		transformDirection: function transformDirection(m) {
+			for (var i = 0, l = this.count; i < l; i++) {
+				_vector$6.x = this.getX(i);
+				_vector$6.y = this.getY(i);
+				_vector$6.z = this.getZ(i);
+
+				_vector$6.transformDirection(m);
+
+				this.setXYZ(i, _vector$6.x, _vector$6.y, _vector$6.z);
+			}
+
+			return this;
+		},
 		setX: function setX(index, x) {
 			this.data.array[index * this.data.stride + this.offset] = x;
 			return this;
